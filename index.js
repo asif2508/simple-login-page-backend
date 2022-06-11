@@ -7,13 +7,12 @@ require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 
-app.post('/login', (req, res)=>{
+app.post('/login', async (req, res)=>{
     const data = req.body;
     const email = data.email;
     const password = data.password;
     if(email && password){
-        var token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1d' });
-        res.send({ token });
+        res.send({ token: "QpwL5tke4Pnpja7X4" });
     }else{
         res.send({error: "missing password"});
     }
